@@ -1,0 +1,1 @@
+{"nfs":{"/vagrant":{"type":"nfs","nfs_version":"4","nfs_udp":false,"guestpath":"/vagrant","hostpath":"/home/saubriot/vsc/k8s_vagrant/vagrant/libvirt/demo","disabled":false,"__vagrantfile":true,"map_uid":1001,"map_gid":1001,"uuid":"1061238472","linux__nfs_options":["rw","no_subtree_check","all_squash","anonuid=1001","anongid=1001","fsid=1061238472"]}}}
