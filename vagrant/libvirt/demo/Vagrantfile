@@ -1,0 +1,51 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.provider "libvirt" do |v|
+  end
+
+  config.vm.define "strasbourg.europe" do |strasbourg|
+    strasbourg.vm.box = "debian/buster64"
+    strasbourg.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 1
+      libvirt.memory = 384
+    end
+    strasbourg.vm.network "private_network", ip: "192.168.10.254"
+  end
+
+  config.vm.define "paris.europe" do |paris|
+    paris.vm.box = "debian/buster64"
+    paris.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 1
+      libvirt.memory = 4096
+    end
+    paris.vm.network "private_network", ip: "192.168.10.10"
+  end
+
+  config.vm.define "roma.europe" do |roma|
+    roma.vm.box = "debian/buster64"
+    roma.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 2
+      libvirt.memory = 4096
+    end
+    roma.vm.network "private_network", ip: "192.168.10.12"
+  end
+
+  config.vm.define "madrid.europe" do |madrid|
+    madrid.vm.box = "debian/buster64"
+    madrid.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 2
+      libvirt.memory = 4096
+    end
+    madrid.vm.network "private_network", ip: "192.168.10.13"
+  end
+
+  config.vm.define "lisboa.europe" do |lisboa|
+    lisboa.vm.box = "debian/buster64"
+    lisboa.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 2
+      libvirt.memory = 4096
+    end
+    lisboa.vm.network "private_network", ip: "192.168.10.14"
+  end
+
+end
