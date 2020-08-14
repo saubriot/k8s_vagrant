@@ -9,7 +9,7 @@ We will use Vagrant to install those machines using 2 options : the first and th
 
 ![Architecture](https://github.com/saubriot/k8s_vagrant/blob/master/images/k8s_architecture.png)
 
-## 3. Pre requisites
+## 3. Prerequisites
 - A strong computer with at least 8 vCPUs and 16GB RAM
 - Libvirt or VirtualBox installed 
 - Vagrant installed to deploy and configure debian "buster" VMs using Libvirt or VirtualBox
