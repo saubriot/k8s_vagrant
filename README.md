@@ -96,6 +96,3 @@ ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.12"
 ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.13"
 ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.14"
 ```
-
-
-
