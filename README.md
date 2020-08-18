@@ -14,7 +14,7 @@ We will use Vagrant to install those machines using libvirt.
 - Libvirt installed 
 - Vagrant installed to deploy and configure debian "buster" VMs using Libvirt
 
-## 4. Create VMs using Libvirt
+## 4. Create VMs
 
 Move to vagrant/libvirt/demo directory (assuming git repo is installed in ~/k8s_vagrant) and create the VM "strasbourg.europe" using "vagrant up" (moving up).
 Note : you password will be prompted for sudo operation.
