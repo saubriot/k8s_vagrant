@@ -23,13 +23,11 @@ for vm_ip in `grep "${vm_short_host}.vm.network \"private_network\", ip:" Vagran
 	fi
 done
 
-if [ ! -f ~/.ansible/ansible.cfg ]; then
-   
-   cat << EOF > ~/.ansible/ansible.cfg
-   [defaults]
-   allow_world_readable_tmpfiles=true
-   EOF
-
+if [[ ! -f ~/.ansible/ansible.cfg ]]; then
+cat << EOF > ~/.ansible/ansible.cfg
+[defaults]
+allow_world_readable_tmpfiles=true
+EOF
 fi
 
 if [[ `grep ANSIBLE_CONFIG ~/.bash_profile|wc -l` -eq 0 ]]; then
