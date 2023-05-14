@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/saubriot/vsc/k8s_vagrant/vagrant/virtualbox/demo","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}

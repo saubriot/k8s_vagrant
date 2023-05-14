@@ -14,7 +14,7 @@ for vm_host in `ls .vagrant/machines`; do
 
 		cat ~/.ssh/id_rsa.pub | \
 			ssh -o "StrictHostKeyChecking=no" vagrant@$vm_ip \
-			-i .vagrant/machines/$vm_host/libvirt/private_key \
+			-i .vagrant/machines/$vm_host/virtualbox/private_key \
 			"cat - >> ~/.ssh/authorized_keys" > /dev/null 2>&1
 
         ssh vagrant@$vm_ip "echo Hello World $vm_host $vm_ip"

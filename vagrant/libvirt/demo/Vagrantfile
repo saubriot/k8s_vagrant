@@ -3,31 +3,67 @@ Vagrant.configure("2") do |config|
   config.vm.provider "libvirt" do |v|
   end
 
-  config.vm.define "paris.europe" do |paris|
-    paris.vm.box = "debian/buster64"
-    paris.vm.provider "libvirt" do |libvirt|
-      libvirt.cpus = 4
-      libvirt.memory = 4096
+  config.vm.define "strasbourg.europe" do |strasbourg|
+    strasbourg.vm.box = "debian/bullseye64"
+    strasbourg.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 1
+      libvirt.memory = 512
     end
-    paris.vm.network "private_network", ip: "192.168.10.10"
+    strasbourg.vm.network "private_network", ip: "192.168.20.141"
+  end
+
+  config.vm.define "paris.europe" do |paris|
+    paris.vm.box = "debian/bullseye64"
+    paris.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 2
+      libvirt.memory = 2560
+    end
+    paris.vm.network "private_network", ip: "192.168.20.52"
   end
 
   config.vm.define "berlin.europe" do |berlin|
-    berlin.vm.box = "debian/buster64"
+    berlin.vm.box = "debian/bullseye64"
     berlin.vm.provider "libvirt" do |libvirt|
       libvirt.cpus = 2
-      libvirt.memory = 4096
+      libvirt.memory = 2560
     end
-    berlin.vm.network "private_network", ip: "192.168.10.11"
+    berlin.vm.network "private_network", ip: "192.168.20.55"
   end
 
   config.vm.define "roma.europe" do |roma|
-    roma.vm.box = "debian/buster64"
+    roma.vm.box = "debian/bullseye64"
     roma.vm.provider "libvirt" do |libvirt|
       libvirt.cpus = 2
-      libvirt.memory = 4096
+      libvirt.memory = 2560
     end
-    roma.vm.network "private_network", ip: "192.168.10.12"
+    roma.vm.network "private_network", ip: "192.168.20.67"
+  end
+
+  config.vm.define "lisboa.europe" do |lisboa|
+    lisboa.vm.box = "debian/bullseye64"
+    lisboa.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 2
+      libvirt.memory = 1536
+    end
+    lisboa.vm.network "private_network", ip: "192.168.20.91"
+  end
+
+  config.vm.define "madrid.europe" do |madrid|
+    madrid.vm.box = "debian/bullseye64"
+    madrid.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 2
+      libvirt.memory = 1536
+    end
+    madrid.vm.network "private_network", ip: "192.168.20.92"
+  end
+
+  config.vm.define "amsterdam.europe" do |amsterdam|
+    amsterdam.vm.box = "debian/bullseye64"
+    amsterdam.vm.provider "libvirt" do |libvirt|
+      libvirt.cpus = 2
+      libvirt.memory = 1536
+    end
+    amsterdam.vm.network "private_network", ip: "192.168.20.93"
   end
 
 end
