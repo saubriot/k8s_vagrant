@@ -7,7 +7,16 @@ We will use Vagrant to install those machines using libvirt.
 
 ## 2. Architecture
 
-![Architecture](https://github.com/saubriot/k8s_vagrant/blob/master/images/k8s_architecture.png)
+| Host              | IP Address     | Admin  | Etcd        | Single Master | Multi Master          | Worker |
+|-------------------|----------------|--------|-------------|---------------|-----------------------|--------|
+| strasbourg.europe | 192.168.20.141 | always |             |               |                       |        |
+| paris.europe      | 192.168.20.52  |        | always      | wlways        | initial control plane |        |
+| berlin.europe     | 192.168.20.55  |        | when master |               | Join control plane    |        |
+| roma.europe       | 192.168.20.67  |        | when master |               | join control plane    |        |
+| lisboa.europe     | 192.168.20.91  |        |             |               |                       | wlways |
+| madrid.europe     | 192.168.20.92  |        |             |               |                       | wlways |
+| amsterdam.europe  | 192.168.20.93  |        |             |               |                       | wlways |
+
 
 ## 3. Pre requisites
 - A strong computer with at least 8 vCPUs and 16GB RAM
