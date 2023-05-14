@@ -71,8 +71,6 @@ Allow transparent ssh for user vagrant for all VM  :
 Now you are able to connect the VM using vagrant account :
 ```
 ssh vagrant@192.168.20.141
-$uname -a
-Linux buster 4.19.0.8-amd64 #1 SMP Debian 4.19.98-1 (2020-01-26) x86_64 GNU/Linux
 ```
 Now all the VMs are up and running.
 If you want to stop the VMs :
