@@ -7,7 +7,6 @@ We will use Vagrant to install those machines using libvirt.
 
 ## 2. Architecture
 
-|-------------------|----------------|--------|-------------|---------------|--------------|--------|
 | Host              | IP Address     | Admin  | Etcd        | Single Master | Multi Master | Worker |
 |-------------------|----------------|--------|-------------|---------------|--------------|--------|
 | strasbourg.europe | 192.168.20.141 | always |             |               |              |        |
@@ -17,7 +16,6 @@ We will use Vagrant to install those machines using libvirt.
 | lisboa.europe     | 192.168.20.91  |        |             |               |              | always |
 | madrid.europe     | 192.168.20.92  |        |             |               |              | always |
 | amsterdam.europe  | 192.168.20.93  |        |             |               |              | always |
-|-------------------|----------------|--------|-------------|---------------|--------------|--------|
 
 
 ## 3. Pre requisites
