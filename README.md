@@ -14,6 +14,29 @@ We will use Vagrant to install those machines using libvirt.
 - Libvirt installed 
 - Vagrant installed to deploy and configure debian "buster" VMs using Libvirt
 
+### 3.1 Libvirt change default network settings
+
+Before moving one, we have to change the default network in libvirt.
+```
+virsh net-edit default
+```
+Change ip address and range to reflect our default network used in vagrant 192.168.20.0/24
+```
+<network>
+  <name>default</name>
+  <uuid>142e6412-86a4-4d44-8b15-833562417d29</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr0' stp='on' delay='0'/>
+  <mac address='52:54:00:e4:48:bb'/>
+  <ip address='192.168.20.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.20.2' end='192.168.20.254'/>
+    </dhcp>
+  </ip>
+</network>
+```
+
+
 ## 4. Create VMs
 
 Move to vagrant/libvirt/demo directory (assuming git repo is installed in ~/k8s_vagrant) and create the VM "strasbourg.europe" using "vagrant up" (moving up).
