@@ -7,15 +7,15 @@ We will use Vagrant to install those machines using libvirt.
 
 ## 2. Architecture
 
-| Host              | IP Address     | Admin  | Etcd        | Single Master | Multi Master          | Worker |
-|-------------------|----------------|--------|-------------|---------------|-----------------------|--------|
-| strasbourg.europe | 192.168.20.141 | always |             |               |                       |        |
-| paris.europe      | 192.168.20.52  |        | always      | wlways        | initial control plane |        |
-| berlin.europe     | 192.168.20.55  |        | when master |               | Join control plane    |        |
-| roma.europe       | 192.168.20.67  |        | when master |               | join control plane    |        |
-| lisboa.europe     | 192.168.20.91  |        |             |               |                       | wlways |
-| madrid.europe     | 192.168.20.92  |        |             |               |                       | wlways |
-| amsterdam.europe  | 192.168.20.93  |        |             |               |                       | wlways |
+| Host              | IP Address     | Admin  | Etcd        | Single Master | Multi Master | Worker |
+|-------------------|----------------|--------|-------------|---------------|--------------|--------|
+| strasbourg.europe | 192.168.20.141 | always |             |               |              |        |
+| paris.europe      | 192.168.20.52  |        | always      | always        | initial      |        |
+| berlin.europe     | 192.168.20.55  |        | when master |               | join         |        |
+| roma.europe       | 192.168.20.67  |        | when master |               | join         |        |
+| lisboa.europe     | 192.168.20.91  |        |             |               |              | always |
+| madrid.europe     | 192.168.20.92  |        |             |               |              | always |
+| amsterdam.europe  | 192.168.20.93  |        |             |               |              | always |
 
 
 ## 3. Pre requisites
