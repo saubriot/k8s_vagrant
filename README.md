@@ -25,7 +25,9 @@ We will use Vagrant to install those machines using libvirt.
 
 ### 3.1 Libvirt change default network settings
 
-Before moving one, we have to change the default network in libvirt.
+Before moving one, we have to change the default network in libvirt.  
+Why ? Because of a problem during etcd installation. Etcd was not listening on my subnet 192.168.20.0/24 but was binded to an other subnet.
+
 ```
 virsh net-edit default
 ```
@@ -45,41 +47,32 @@ Change ip address and range to reflect our default network used in vagrant 192.1
 </network>
 ```
 
+After this change we apply with :
+```
+virsh net-start default
+```
+
+A "ping paris" on the paris.europe host should produce 192.168.20.52
+
 
 ## 4. Create VMs
 
-Move to vagrant/libvirt/demo directory (assuming git repo is installed in ~/k8s_vagrant) and create the VM "strasbourg.europe" using "vagrant up" (moving up).
+Move to vagrant/libvirt/demo directory (assuming git repo is installed in ~/k8s_vagrant) and create the VMs using "vagrant up" (moving up).
 Note : you password will be prompted for sudo operation.
 ```
 cd ~/k8s_vagrant/vagrant/libvirt/demo
-vagrant up strasbourg.europe
+vagrant up
 [sudo] Password for xxxxx :
 ```
-Allow transparent ssh for user vagrant for VM "strasbourg.europe" :
+Allow transparent ssh for user vagrant for all VM  :
 ```
-./ssh_allow_host.sh strasbourg.europe 192.168.10.254
-[strasbourg.europe - 192.168.10.254] Added certificate
+./ssh_allow_all.sh
 ```
 Now you are able to connect the VM using vagrant account :
 ```
-ssh vagrant@192.168.10.254
+ssh vagrant@192.168.20.141
 $uname -a
 Linux buster 4.19.0.8-amd64 #1 SMP Debian 4.19.98-1 (2020-01-26) x86_64 GNU/Linux
-```
-Reproduce the operation for VMs paris.europe, roma.europe, madrid.europe and lisboa.europe :
-```
-vagrant up paris.europe
-vagrant up roma.europe
-vagrant up madrid.europe
-vagrant up lisboa.europe
-./ssh_allow_host.sh paris.europe 192.168.10.10
-./ssh_allow_host.sh roma.europe 192.168.10.12
-./ssh_allow_host.sh madrid.europe 192.168.10.13
-./ssh_allow_host.sh lisboa.europe 192.168.10.14
-ssh vagrant@192.168.10.10 "echo Hello World !"
-ssh vagrant@192.168.10.12 "echo Hello World !"
-ssh vagrant@192.168.10.13 "echo Hello World !"
-ssh vagrant@192.168.10.14 "echo Hello World !"
 ```
 Now all the VMs are up and running.
 If you want to stop the VMs :
@@ -98,33 +91,11 @@ or just one VM :
 ```
 vagrant up strasbourg.europe
 ```
-If you want to destroy the VMs :
+If you want to destroy all the VMs :
 ```
 vagrant destroy -f
 ```
 or just one VM :
 ```
 vagrant destroy strasbourg.europe -f
-```
-If you want to destroy the bridged network (by default demo0) :
-```
-sudo virsh net-destroy demo0
-```
-If you want to remove ssh known hosts :
-```
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.254"
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.10"
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.12"
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.13"
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.14"
-```
-So if you want to clean up everything :
-```
-vagrant destroy -f
-sudo virsh net-destroy demo0
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.254"
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.10"
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.12"
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.13"
-ssh-keygen -f ~/.ssh/known_hosts -R "192.168.10.14"
 ```
